@@ -1,0 +1,146 @@
+﻿body {
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    /*max-width: 280px;*/
+}
+
+.unit {
+    /*Make rounded corners div*/
+    /*Make different color each*/
+    margin: 10px 10px 0px 10px;
+    text-align: center;
+    border-radius: 25px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    /*border-bottom:5px solid red;*/
+    /*background-color: #223fb0;*/
+    margin-bottom: 20px;
+}
+
+    .unit .heading {
+        padding-top: 5px;
+        color: #223fb0;        
+    }
+
+    
+
+    .unit > .description {
+        padding-top: 0px;
+        padding-bottom: 10px;
+        text-align: left;
+        background-color: white;
+        font-size: 15px;
+        border-top: 5px solid #050252;
+    }
+
+    .unit > h2 {
+        padding-top: 20px;
+        font-weight:bold;
+        font-size:3em;
+    }
+
+    .unit > .bottom > a {
+        width: 100%;
+    }
+
+    .unit > .bottom {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+    }
+
+.navbar-lg {
+    background-color: #13047a;
+}
+
+    .navbar-lg a {
+        color: white;
+    }
+
+.navbar-header li:hover,
+.navbar-header li:focus {
+    background-color: white;
+    color: #13047a;
+}
+
+.nav li a:hover,
+.nav li a:focus {
+    background-color: white;
+    color: #13047a;
+}
+
+
+.font-size-default {
+    font-size: 18px;
+}
+
+.btn-wide {
+    width: 100%;
+    background-color: #050252;
+    border-color: black;
+}
+
+.home-page-headline {
+    font-size: 50px;
+    color: #13047a;
+}
+
+.home-page-task-row a {
+    text-decoration: none;
+}
+
+.home-page-task-div {
+    width: 100%;
+    height: 100%;
+    background-color: #13047a;
+    border: 2px solid black;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    min-width: 100%;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 10px;
+    display: table;
+}
+
+
+    .home-page-task-div:hover {
+        color: #13047a;
+        background-color: white;
+        border-color: #13047a;
+    }
+
+    .home-page-task-div > div {
+        height: 100px;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+        .home-page-task-div > div > p {
+            font-size: 15px;
+        }
+
+.text-bold 
+{
+    font-weight: bold;
+    font-size: 1em;
+}

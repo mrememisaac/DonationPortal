@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @SWNI.Website.Constants.ApplicationConstants.Description</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="home-page-headline-container">
+        <h1 class="home-page-headline text-center">
+            <img src="~/Content/Images/swni-logo.jpg" width="200" alt="Logo" />
+            <span class="text-blue">@SWNI.Website.Constants.ApplicationConstants.Name</span>
+            <img src="~/Content/Images/wefm-logo.png" width="200" alt="Logo" />
+        </h1>
+    </div>
+    <div class="navbar navbar-lg">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @{
+                        <li>@Html.ActionLink("Donate", "Donate", "Donate")</li>
+                        <li>@Html.ActionLink("Impact", "Index", "Impact")</li>
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
+                            <li>@Html.ActionLink("Item Costs", "Index", "ItemCosts")</li>
+                            <li>@Html.ActionLink("Configuration", "Index", "PaymentConfigurations")</li>
+                        }
+                        if (User.IsInRole("Admin") || User.IsInRole("Executive"))
+                        {
+                            <li>@Html.ActionLink("Donations", "Index", "Donations")</li>
+                        }
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            <li>@Html.ActionLink("My Account", "Index", "Dashboard")</li>
+                        }
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="text-center">
+            <p>&copy; @DateTime.Now.Year - Social Welfare Network Initiative & WEFM Cash Donation Portal - @SWNI.Website.Constants.ApplicationConstants.Description</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

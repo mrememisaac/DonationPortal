@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SWNI.Entities.DonationUnit>
+
+@{
+    ViewBag.Title = "Choose an amount";
+}
+
+<h2>@ViewBag.Title</h2>
+@{
+    foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="unit text-center">
+                <div class="heading">
+                    <h2>@String.Format("N{0}",item.Name)</h2>
+                </div>
+                @{
+        if (item.Description.Count > 0)
+        {
+            <div class="description">
+                <ul>
+                    @foreach (var desc in item.Description)
+                    {
+                        <li>@desc</li>
+                    }
+                </ul>
+            </div>
+        }
+                }
+                <div class="bottom">
+                    @{
+
+        using (Html.BeginForm("Donate", "Donate", new { Units = item.Price }, FormMethod.Post, null))
+        {
+            @Html.AntiForgeryToken()
+                        <input type="submit" value="Donate" class="btn btn-lg btn-success btn-wide" />
+        }
+                    }
+                    @*@Html.ActionLink("Buy", "Donate", new { Units = item.Price }, new { @class = "btn btn-lg btn-success" })*@
+                </div>
+            </div>
+        </div>
+    }
+}

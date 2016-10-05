@@ -1,0 +1,32 @@
+﻿@model bool
+@{
+    if (Model == true)
+    {
+        ViewBag.Title = "Donation Successful";
+    }
+    else
+    {
+        ViewBag.Title = "Donation Failed";
+    }
+}
+
+@{
+    <h2>@ViewBag.Title</h2>
+
+
+    if (ViewBag.Name != null)
+    {
+        <h2>Dear @ViewBag.Name,</h2>
+    }
+
+    if (Model == true)
+    {
+        <h2>Thank you, your donation was successful!</h2>
+        @Html.ActionLink("Continue", "Index", "Dashboard", null, new { @class = "btn btn-lg btn-default" })
+    }
+    else
+    {
+        <p class="text-center">Something went wrong, please try again</p>
+        @Html.ActionLink("Donate", "Donate", null, new { @class = "btn btn-lg btn-default" })
+    }
+}
