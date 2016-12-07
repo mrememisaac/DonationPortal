@@ -10,11 +10,26 @@ using System.Data.Entity;
 
 namespace SWNI.Data
 {
+    /// <summary>
+    /// Base Implementation of IRepository used in all non special cases
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class Repository<T> : IDisposable, IRepository<T> where T : class, IEntity
     {
+        /// <summary>
+        /// A handle on the context
+        /// </summary>
         private readonly IUnitOfWork context;
+
+        /// <summary>
+        /// Variable to hold the error message
+        /// </summary>
         private string errorMessage = string.Empty;
 
+        /// <summary>
+        /// Constructor 
+        /// </summary>
+        /// <param name="context">The db context</param>
         public Repository(IUnitOfWork context)
         {
             this.context = context;
@@ -26,6 +41,11 @@ namespace SWNI.Data
             return context.Get<T>().Count();
         }
 
+        /// <summary>
+        /// Add item to the collection
+        /// </summary>
+        /// <param name="item">The entity</param>
+        /// <returns>The inserted item</returns>
         public T Add(T item)
         {
             try
@@ -52,6 +72,11 @@ namespace SWNI.Data
 
         }
 
+        /// <summary>
+        /// Update an item
+        /// </summary>
+        /// <param name="item">The entity</param>
+        /// <returns>The updated item</returns>
         public T Update(T item)
         {
             try
@@ -60,6 +85,8 @@ namespace SWNI.Data
                 {
                     throw new ArgumentNullException(string.Format("{0} cannot be null", item.GetType().Name));
                 }
+
+                //Enable this line of code if you permit lazy loading
                 //this.context.Entry(item).State = System.Data.Entity.EntityState.Modified;
                 this.context.SaveChanges();
                 return item;
@@ -77,6 +104,10 @@ namespace SWNI.Data
             }
         }
 
+        /// <summary>
+        /// Delete an entity
+        /// </summary>
+        /// <param name="item">The item to be deleted</param>
         public void Delete(T item)
         {
             try
@@ -102,12 +133,21 @@ namespace SWNI.Data
             }
         }
 
-
+        /// <summary>
+        /// Checks if the entity exists in the collection
+        /// </summary>
+        /// <param name="item">The entity to found</param>
+        /// <returns>True if found else false</returns>
         public bool Contains(T item)
         {
             return context.Get<T>().FirstOrDefault(t => t == item) != null;
         }
 
+        /// <summary>
+        /// Removes the item from teh collection
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public bool Remove(T item)
         {
             return context.Remove(item);

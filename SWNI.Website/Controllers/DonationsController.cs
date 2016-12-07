@@ -48,6 +48,7 @@ namespace SWNI.Website.Controllers
             int count = 1;
 
             //donation by month for 2016
+            //this should be pulled from an external resource
             string[] months = { "Fake", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
             while (count < 13)
             {                
