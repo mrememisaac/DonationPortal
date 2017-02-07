@@ -20,7 +20,7 @@ namespace SWNI.Website.Communication
             msg.From = new MailAddress(Constants.ApplicationConstants.Email.Account);
             using (var smtp = new SmtpClient())
             {
-                if (HttpContext.Current.Request.Url.Authority.Contains("fluentapps.net"))
+                if (HttpContext.Current.Request.Url.Authority.Contains("your-domain.name"))
                 {
                     var credential = new NetworkCredential
                     {
