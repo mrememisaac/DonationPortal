@@ -27,7 +27,7 @@ namespace SWNI.Website.Constants
             {
                 get
                 {
-                    return "website@fluentapps.net";
+                    return "website-email-address@your-domain.name";
                 }
             }
 
@@ -35,7 +35,7 @@ namespace SWNI.Website.Constants
             {
                 get
                 {
-                    return "mail.fluentapps.net";
+                    return "mail.your-domain.name";
                 }
             }
 
@@ -43,7 +43,7 @@ namespace SWNI.Website.Constants
             {
                 get
                 {
-                    return "ml01.anaxanet.com";
+                    return "your-online-mail-server.com";
                 }
             }
 
@@ -51,7 +51,7 @@ namespace SWNI.Website.Constants
             {
                 get
                 {
-                    return "w1e2b3s4i5t6e7";
+                    return "your-online-mail-server-password";
                 }
             }
         }
