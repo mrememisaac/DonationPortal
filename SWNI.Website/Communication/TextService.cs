@@ -19,7 +19,7 @@ namespace SWNI.Website.Communication
 
         static string sessionId { get; set; }
 
-        internal static async Task<string> CreateSession(string url = "https://api.clickatell.com/http/auth?", string key = "3495036", string username = "thegoodlife", string password = "fRGOKTMMYKXGgZ")
+        internal static async Task<string> CreateSession(string url = "https://api.clickatell.com/http/auth?", string key = "your-clickatell-key", string username = "your-clickatell-username", string password = "your-clickatell-password")
         {
             string sessionId = "";
             WebClient client = new WebClient();
